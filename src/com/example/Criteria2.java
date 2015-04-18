@@ -18,14 +18,15 @@ public class Criteria2 {
 	        crit.add(c2);
 	        crit.add(c1);
 	
-	        List results = crit.list();
+	        List<?> results = crit.list();
 	        displayProductsList(results);
 		
         
 
 	}
-   public static void displayProductsList(List list){
-        Iterator iter = list.iterator();
+   public static void displayProductsList(List<?> list){
+	   System.out.println("Displaying products list:");
+        Iterator<?> iter = list.iterator();
         if (!iter.hasNext()){
             System.out.println("No products to display.");
             return;

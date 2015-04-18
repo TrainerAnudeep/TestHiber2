@@ -3,6 +3,7 @@ package com.example;
 import org.hibernate.Session;
 
 public class Data {
+	@SuppressWarnings("unchecked")
 	public static void prepareData(){
         Session session = HibernateSessionFactory.getSession();
 

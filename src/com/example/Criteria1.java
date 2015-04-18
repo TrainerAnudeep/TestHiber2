@@ -16,15 +16,17 @@ public class Criteria1 {
 		Criteria crit = session.createCriteria(Supplier.class);
 		Criteria prdCrit = crit.createCriteria("products");
 		prdCrit.add(Restrictions.gt("price", new Double(22.0)));
-		List results = crit.list();
+		@SuppressWarnings("unchecked")
+		List<Supplier> results = (List<Supplier>)crit.list();
+		System.out.println("Suppliers list is:");
 		displaySupplierList(results);
 
 		session.close();
 
 	}
 
-	static public void displaySupplierList(List list) {
-		Iterator iter = list.iterator();
+	static public void displaySupplierList(List<?> list) {
+		Iterator<?> iter = list.iterator();
 		if (!iter.hasNext()) {
 			System.out.println("No suppliers to display.");
 			return;

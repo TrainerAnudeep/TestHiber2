@@ -12,12 +12,12 @@ public class Criteria4 {
 		
 		Criteria crit = session.createCriteria(Product.class);
        crit.addOrder(Order.asc("price"));
-        List results = crit.list();
+        List<?> results = crit.list();
         displayProductsList(results);
 
 	}
-   public static void displayProductsList(List list){
-        Iterator iter = list.iterator();
+   public static void displayProductsList(List<?> list){
+        Iterator<?> iter = list.iterator();
         if (!iter.hasNext()){
             System.out.println("No products to display.");
             return;
